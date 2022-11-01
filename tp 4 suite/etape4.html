@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>etape4</title>
+    
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+    <body>
+        <div id="table_container">
+            <table id="table" border="1">
+                <tr>
+                    <th>N°</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Points</th>
+                    <th>Select</th>
+                </tr>
+            </table>
+            <div id="container_summary" >
+                <p id="p1">0 ligne(s)</p>
+                <p id="p2"></p>
+                <p id="p3"> Totale point(s)</p>
+            </div>
+            <button id="bt_ajout" onclick="doInsert('nom', 'prenom', 10)">Ajouter</button>
+            <button id="bt_console" onclick="consoleTableau()">Console tableau</button>
+        </div>
+        
+    </body>
+    <script src="./js/script.js"></script>
+</html>

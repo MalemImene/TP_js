@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>etape2</title>
+    
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+    <body>
+        <div id="table_container">
+            <table id="table" border="1">
+                <tr>
+                    <th>N°</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Points</th>
+                    <th>Select</th>
+                </tr>
+                <tr>
+                    <td class="col_nb">1</td>
+                    <td class="col_txt">Nom1</td>
+                    <td class="col_txt">Prenom1</td>
+                    <td class="col_nb">5</td>
+                    <td class="col_select"><input type="checkbox"/></td>
+                </tr>
+                <tr>
+                    <td class="col_nb">2</td>
+                    <td class="col_txt">Nom2</td>
+                    <td class="col_txt">Prenom2</td>
+                    <td class="col_nb">5</td>
+                    <td class="col_select"><input type="checkbox"/></td>
+                </tr>
+                <tr>
+                    <td class="col_nb">3</td>
+                    <td class="col_txt">Nom3</td>
+                    <td class="col_txt">Prenom3</td>
+                    <td class="col_nb">5</td>
+                    <td class="col_select"><input type="checkbox"/></td>
+                </tr>
+            </table>
+            <button id="bt_ajout" onclick="doInsertRowTable(99,'MALEM','Imene',16)">Ajouter</button>
+        </div>
+        
+    </body>
+    <script src="./js/script.js"></script>
+</html>
