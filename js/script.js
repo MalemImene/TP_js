@@ -16,6 +16,7 @@ let people = [
         points: 15
     },
 ]
+let encien=false;
 let total_points = 0;
 function init() {
     for(person of people) { 
@@ -25,10 +26,16 @@ function init() {
 }
 
 function doInsert(nom, prenom, points) {
+    if(encien==false){
+    encien = true;
+    init();   
+    }
+
     num++;
     total_points= total_points+points;
     update_summary(total_points,num);
     doInsertRowTable(num,nom,prenom,points);
+    
     
 }
 
@@ -82,28 +89,9 @@ function doInsertRowTable(id,nom,prenom,points){
 }
 
 function consoleTableau(){
-    table=[];
-    keys= ['nom','prenom','points']
-    rows= document.getElementsByTagName('tr');
-    for(i=1;i<rows.length;i++){
-        childs=rows[i].childNodes
-        t=[];
-        for(j=1;j<childs.length-1;j++){
-            t.push(childs[j].innerText)
-            
-        }
-        
-
-        person = new Object();
-        for (n=0;n<t.length;n++){
-            person[keys[n]]=t[n];
-        }
-        table.push(person)
-    }
-    console.log(table);
-
+    console.log(people);
 }
-let persons = [];
+
 function doNewData() {
     const elt_nom = document.getElementById('form_nom');
     const elt_prenom = document.getElementById('form_prenom');
@@ -130,7 +118,7 @@ function doNewData() {
                 person[keys[n]]=t[n];
             }
         
-        persons.push(person)
+        people.push(person)
 
         elt_nom.style.borderColor = "black";
         elt_prenom.style.borderColor = "black";
@@ -139,7 +127,7 @@ function doNewData() {
         elt_nom.value = "";
         elt_prenom.value = "";
         elt_points.value = "";
-        console.log(persons);
+
     }
 
 
@@ -164,15 +152,14 @@ function deleteRow(){
             if(confirm('Voulez-vous vraiment supprimer les lignes ?')){
                 element_found = false;
                 table = document.getElementById('table');
-                rows = document.getElementsByTagName('row');
+                rows = document.getElementsByClassName('row');
                 
                 let i=0;
                 while(i<rows.length){
                     if(rows[i].lastChild.firstChild.checked) {
-                    console.log(1);
                     total_points = total_points - parseInt(rows[i].childNodes[3].innerText);
-                    rows[i].removeChild();
-                    persons.splice(i, 1);
+                    rows[i].remove();
+                    people.splice(i, 1);
                     element_found = true;
                     i--;
                     num--;
@@ -181,7 +168,7 @@ function deleteRow(){
                     i++
                 }
                 alert("Ligne supprimée avec succès");
-                update_summary();
+                update_summary(total_points,num);
 
             }
         }
